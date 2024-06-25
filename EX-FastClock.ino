@@ -294,7 +294,7 @@ void setup() {
     #ifdef DEBUG_PRINT
       Serial.println("Init Mechanical Buttons:");
     #endif
-    for (int i = 0; i < NUMBUTTONS; i++) {
+    for (unsigned int i = 0; i < NUMBUTTONS; i++) {
       pinMode(buttons[i], INPUT_PULLUP);
       #ifdef DEBUG_PRINT
         Serial.print("Pin ");
@@ -315,29 +315,35 @@ void setup() {
   currentMillis = millis();
   GetSavedTime();                   // Read the EEPROM
 
+  // 1 - SSD1306 OR 2 - SH1106
   #ifdef OLED_DISPLAY
-    if(!oled.begin(SSD1306_SWITCHCAPVCC, OLED_I2C)) {
-      #ifdef DEBUG_PRINT
-        Serial.println(F("SSD1306 allocation failed"));
-       #endif
-      for(;;); // Don't proceed, loop forever
-    }
+    #if OLED_DISPLAY == 1
+      if(!oled.begin(SSD1306_SWITCHCAPVCC, OLED_I2C)) {
+        #ifdef DEBUG_PRINT
+          Serial.println(F("OLED allocation failed"));
+        #endif
+        for(;;); // Don't proceed, loop forever
+      }
+    #endif
+    #if OLED_DISPLAY == 2
+      oled.begin(SH1106_SWITCHCAPVCC, OLED_I2C);
+    #endif
     
     TimeCheck();
     
     // Clear the buffer
     oled.clearDisplay();
     oled.setCursor(0, 0);
-    oled.setTextColor(SSD1306_WHITE);
+    oled.setTextColor(WHITE);
     oled.setTextSize(1);
     oled.print(header);
-    oled.drawLine(0, 10, oled.width()-1, 10, SSD1306_WHITE);
+    oled.drawLine(0, 10, oled.width()-1, 10, WHITE);
     oled.cp437(true);
     oled.setTextSize(3);
     oled.setCursor(20, 13);
     oled.setTextColor(WHITE, BLACK);
     oled.print(message);
-    oled.drawLine(0, 37, oled.width()-1, 37, SSD1306_WHITE);
+    oled.drawLine(0, 37, oled.width()-1, 37, WHITE);
     oled.setCursor(0, 57);
     oled.setTextColor(WHITE, BLACK);
     oled.setTextSize(1);

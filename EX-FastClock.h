@@ -31,20 +31,28 @@
   int pixel_x, pixel_y;     //Touch_getXY() updates global vars
 #endif
 
+// 1 - SSD1306 OR 2 - SH1106
 #ifdef OLED_DISPLAY
-  #include <SoftWire.h>
-  #include <Adafruit_GFX.h>
-  #include <Adafruit_SSD1306_SoftWire.h>
-  // #include <Fonts/FreeSans9pt7b.h>
-  // #include "fonts/Open_Sans_Regular_9.h"
-  
-  #define WIDTH 128
-  #define HEIGHT 64
-  
-  #define OLED_RESET -1
+  #if OLED_DISPLAY == 1
+    #include <SoftWire.h>
+    #include <Adafruit_GFX.h>
+    #include <Adafruit_SSD1306_SoftWire.h>
+    // #include <Fonts/FreeSans9pt7b.h>
+    // #include "fonts/Open_Sans_Regular_9.h"
 
-  SoftWire i2c(OLED_SDA, OLED_SCL);
-  Adafruit_SSD1306 oled(WIDTH, HEIGHT, &i2c, OLED_RESET);
+    SoftWire i2c(OLED_SDA, OLED_SCL);
+    Adafruit_SSD1306 oled(OLED_WIDTH, OLED_HEIGHT, &i2c, OLED_RESET);
+  #endif
+
+  #if OLED_DISPLAY == 2
+    #include <FlexWire.h>
+    FlexWire flexWire = FlexWire(OLED_SDA, OLED_SCL);
+
+    #include <Adafruit_GFX.h>
+    #include <Adafruit_SH1106.h>
+    
+    Adafruit_SH1106 oled(OLED_RESET);
+  #endif
 #endif
 
 // The following line governs the clock speeds available for selection
