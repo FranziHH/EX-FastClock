@@ -6,7 +6,7 @@
 #define SHARESCL 1
 #define SWITCHPINS 1
 
-#include <FlexWire.h>
+#include <FlexWire_v1.h>
 #include <SparkFunHTU21D.h>
 
 #define MAXSENSOR 2
@@ -20,14 +20,14 @@ uint8_t sclpin[MAXSENSOR] = { 3, 5 };
 #endif
 
 #if SWITCHPINS
-FlexWire Wire;
+FlexWire flexWire;
 HTU21D htu;
 #else 
 // Array of Flexwire instances
 #if SHARESCL
-FlexWire wire[MAXSENSOR] = { {sdapin[0], sclpin}, {sdapin[1], sclpin} }; 
+FlexWire flexWire[MAXSENSOR] = { {sdapin[0], sclpin}, {sdapin[1], sclpin} }; 
 #else
-FlexWire wire[MAXSENSOR] = { {sdapin[0], sclpin[0]}, {sdapin[1], sclpin[1]} }; 
+FlexWire flexWire[MAXSENSOR] = { {sdapin[0], sclpin[0]}, {sdapin[1], sclpin[1]} }; 
 #endif
 // Create array of instances of the HTU21D class
 HTU21D htu[MAXSENSOR];
@@ -44,7 +44,7 @@ void setup()
   }
   flexWire.setClock(90000);
 #else
-  for (uint8_t i=0; i < MAXSENSOR; i++) htu[i].begin(wire[i]);
+  for (uint8_t i=0; i < MAXSENSOR; i++) htu[i].begin(flexWire[i]);
 #endif
 }
 

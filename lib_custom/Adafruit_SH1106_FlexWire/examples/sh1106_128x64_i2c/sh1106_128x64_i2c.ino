@@ -23,13 +23,13 @@ SH1106 driver don't provide several functions such as scroll commands.
 
 *********************************************************************/
 
-#include <FlexWire.h>
+#include <FlexWire_v1.h>
 FlexWire flexWire = FlexWire(A2, A3);
 
 #include <SPI.h>
 // #include <Wire.h>
 #include <Adafruit_GFX.h>
-#include <Adafruit_SH1106.h>
+#include <Adafruit_SH1106_FlexWire.h>
 
 #define OLED_RESET 4
 Adafruit_SH1106 display(OLED_RESET);
@@ -61,7 +61,7 @@ static const unsigned char PROGMEM logo16_glcd_bmp[] =
   B00000000, B00110000 };
 
 #if (SH1106_LCDHEIGHT != 64)
-#error("Height incorrect, please fix Adafruit_SH1106.h!");
+#error("Height incorrect, please fix Adafruit_SH1106_FlexWire.h!");
 #endif
 
 void setup()   {                

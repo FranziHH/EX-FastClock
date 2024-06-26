@@ -1,7 +1,7 @@
 #ifndef fWire_h
 #define fWire_h
 
-#include <FlexWire.h>
+#include <FlexWire_v1.h>
 
 extern FlexWire flexWire;
 

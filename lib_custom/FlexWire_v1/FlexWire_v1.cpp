@@ -10,7 +10,7 @@
 */
 
 
-#include <FlexWire.h>
+#include <FlexWire_v1.h>
 
 FlexWire::FlexWire(uint8_t sda, uint8_t scl, bool internal_pullup):
   _i2cDelay(I2C_DEFAULT_DELAY),

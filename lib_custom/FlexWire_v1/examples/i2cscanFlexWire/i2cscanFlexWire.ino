@@ -32,7 +32,7 @@
 // Devices with higher bit address might not be seen properly.
 //
 
-#include <FlexWire.h>
+#include <FlexWire_v1.h>
 
 FlexWire flexWire = FlexWire(A2, A3, false);
      

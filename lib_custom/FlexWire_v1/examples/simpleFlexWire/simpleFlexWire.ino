@@ -5,9 +5,9 @@
 #define MEMLOC 0x0A
 #define ADDRLEN 1
 
-#include <FlexWire.h>
+#include <FlexWire_v1.h>
 
-FlexWire Wire = FlexWire(2, 3);
+FlexWire flexWire = FlexWire(2, 3);
 
 void setup(void) {
   Serial.begin(57600);

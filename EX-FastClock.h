@@ -45,11 +45,11 @@
   #endif
 
   #if OLED_DISPLAY == 2
-    #include <FlexWire.h>
+    #include <FlexWire_v1.h>
     FlexWire flexWire = FlexWire(OLED_SDA, OLED_SCL);
 
     #include <Adafruit_GFX.h>
-    #include <Adafruit_SH1106.h>
+    #include <Adafruit_SH1106_FlexWire.h>
     
     Adafruit_SH1106 oled(OLED_RESET);
   #endif

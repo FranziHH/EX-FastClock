@@ -4,6 +4,15 @@
 An Adjustable Speed Model Railway Fast Clock which integrates with the DCC-EX Command Station
 
 
+# Libraries
+
+For this project two libraries were adapted (for use SH1106):
+
+- [Adafruit_SH1106](https://github.com/wonho-maker/Adafruit_SH1106)
+- [FlexWire](https://github.com/felias-fogg/FlexWire)
+
+all required libraries are included, for use with the Arduino IDE unpack arduino_libraries.7z and copy it into the Arduino library folder
+
 
 ## Background
 

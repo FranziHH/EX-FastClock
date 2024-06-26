@@ -19,7 +19,7 @@ All text above, and the splash screen must be included in any redistribution
 #include <SPI.h>
 #include <fWire.h>
 #include <Adafruit_GFX.h>
-#include <Adafruit_SH1106.h>
+#include <Adafruit_SH1106_FlexWire.h>
 
 // If using software SPI (the default case):
 #define OLED_MOSI   9
@@ -62,7 +62,7 @@ static const unsigned char PROGMEM logo16_glcd_bmp[] =
   B00000000, B00110000 };
 
 #if (SH1106_LCDHEIGHT != 64)
-#error("Height incorrect, please fix Adafruit_SH1106.h!");
+#error("Height incorrect, please fix Adafruit_SH1106_FlexWire.h!");
 #endif
 
 void setup()   {                

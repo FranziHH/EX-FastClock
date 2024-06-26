@@ -4,9 +4,9 @@
 // Readout BMA020 chip
 
 
-#include <FlexWire.h>
+#include <FlexWire_v1.h>
 
-FlexWire Wire = FlexWire(2, 3);
+FlexWire flexWire = FlexWire(2, 3);
 
 #define BMAADDR 0x38
 

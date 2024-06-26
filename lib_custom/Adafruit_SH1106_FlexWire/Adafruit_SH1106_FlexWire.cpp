@@ -32,10 +32,10 @@ However, SH1106 driver don't provide several functions such as scroll commands.
 #endif
 #include <stdlib.h>
 
-#include <flexWire.h>
+#include <flexWire_v1.h>
 
 #include "Adafruit_GFX.h"
-#include "Adafruit_SH1106.h"
+#include "Adafruit_SH1106_FlexWire.h"
 
 // the memory buffer for the LCD
 

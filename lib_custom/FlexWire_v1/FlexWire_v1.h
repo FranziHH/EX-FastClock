@@ -1,8 +1,8 @@
 /* Flexible Wire drop-in replacement */
 
-#ifndef FLEXWIRE_h
-#define FLEXWIRE_h
-#define FLEXWIRE_VERSION 1.2.1
+#ifndef FLEXWIRE_V1_h
+#define FLEXWIRE_V1_h
+#define FLEXWIRE_V1_VERSION 1.2.1
 
 // #define AVR_OPTIMIZATION 0 // without optimizations, less code, but much slower (55 kHz)
 
